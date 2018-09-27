@@ -12,5 +12,5 @@ Command Line Argument
 for example
 
 ```
-dotnet SqlMarkdownGenerator.dll server database user password md
+node index.js server database user password md
 ```
