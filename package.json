@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-sqlmarkdowngenerator",
+  "version": "1.0.0",
+  "description": "sql markdown document generator",
+  "main": "index.js",
+  "dependencies": {
+    "mssql": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nodejs-sqlmarkdowngenerator"
+  },
+  "keywords": [
+    "nodejs",
+    "mssql",
+    "markdown"
+  ],
+  "author": "leo.yen",
+  "license": "ISC"
+}
