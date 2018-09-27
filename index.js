@@ -21,13 +21,6 @@ sql.connect(config, function (err) {
     if (err) console.log(err);
 
     var request = new sql.Request();
-    // request.query('select * from accBankAccount', function (err, recordset) {
-    //     if (err) console.log(err);
-
-    //     //send records as a response
-    //     console.log(recordset.recordsets[0][0]);
-    //     var p=[];
-    // });
     request.query("    SELECT a.Table_schema +'.'+a.Table_name   as 表格名稱              ,b.COLUMN_NAME                     as 欄位名稱              ,b.DATA_TYPE                       as 資料型別              ,isnull(b.CHARACTER_MAXIMUM_LENGTH,'') as 長度              ,isnull(b.COLUMN_DEFAULT,'')           as 預設值              ,b.IS_NULLABLE                         as 是否允許空值             ,c.CONSTRAINT_NAME            ,( SELECT value                FROM fn_listextendedproperty (NULL, 'schema', a.Table_schema, 'table', a.TABLE_NAME, 'column', default)                 WHERE name='MS_Description' and objtype='COLUMN'                  and objname Collate Chinese_Taiwan_Stroke_CI_AS = b.COLUMN_NAME               ) as 欄位描述       FROM INFORMATION_SCHEMA.TABLES  a        LEFT JOIN INFORMATION_SCHEMA.COLUMNS b ON a.TABLE_NAME = b.TABLE_NAME        LEFT JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON b.TABLE_NAME = c.TABLE_NAME  AND b.COLUMN_NAME =c.COLUMN_NAME    WHERE TABLE_TYPE='BASE TABLE'    ORDER BY a.TABLE_NAME , b.ORDINAL_POSITION",
         function (err, recordset) {
             if (err) console.log(err);
